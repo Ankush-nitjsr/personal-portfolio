@@ -5,31 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Ankush</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/d649801108.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <!-- ---------------- Header section ---------------------->
     <div id="header">
       <div class="container">
         <nav>
           <h2 class="logo">
             <span style="color: #ff004f; font-size: 2rem">A</span>nkush.
           </h2>
-          <ul>
+          <ul id="sidemenu">
             <li>
-              <a href="#">Home</a>
+              <a href="#header">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="#about">About</a>
             </li>
             <li>
-              <a href="#">Services</a>
+              <a href="#services">Services</a>
             </li>
             <li>
-              <a href="#">Portfolio</a>
+              <a href="#portfolio">Portfolio</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
+            <i class="fas fa-times" onclick="closemenu()"></i>
           </ul>
+          <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
           <p>Web Developer</p>
@@ -37,7 +44,7 @@
         </div>
       </div>
     </div>
-    <!-- ---------------- About section -------------------- -->
+    <!-- ---------------- About section ---------------------->
     <div id="about">
       <div class="container">
         <div class="row">
@@ -45,7 +52,7 @@
             <img src="images/aboutPic.png" alt="about section picture" />
           </div>
           <div class="right-section">
-            <h1 class="about-title">About Me</h1>
+            <h1 class="title">About Me</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
               alias vitae quia vel. Aliquam illo nobis inventore praesentium
@@ -101,6 +108,142 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- ---------------- Services section ---------------------->
+    <div id="services">
+      <div class="container">
+        <h1 class="title">My Services</h1>
+        <div class="services-list">
+          <div>
+            <i class="fa-solid fa-code"></i>
+            <h2>Web Design</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+              aspernatur fuga corrupti beatae eveniet doloribus cumque nostrum
+              blanditiis cum eos.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <i class="fa-solid fa-crop"></i>
+            <h2>UI/UX Design</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+              aspernatur fuga corrupti beatae eveniet doloribus cumque nostrum
+              blanditiis cum eos.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <i class="fa-brands fa-app-store"></i>
+            <h2>App Design</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+              aspernatur fuga corrupti beatae eveniet doloribus cumque nostrum
+              blanditiis cum eos.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------- Portfolio section ---------------------->
+    <div id="portfolio">
+      <div class="container">
+        <h1 class="title">My Work</h1>
+        <div class="work-list">
+          <div class="work">
+            <img src="images/work1.png" alt="work1 image" />
+            <div class="layer">
+              <h3>Crypto tracker app</h3>
+              <p>
+                A powerful crypto tracker built with React, Axios, Framer
+                Motion, and Chart.js. Keep an eye on your favorite
+                cryptocurrencies with customizable watchlists and dynamic,
+                real-time data visualizations.
+              </p>
+              <a href="https://crypto-tracker-7bgw.vercel.app/"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/work2.png" alt="work2 image" />
+            <div class="layer">
+              <h3>Shop e-commerce app</h3>
+              <p>
+                A lightweight e-commerce project built ReactJs and Vite having
+                functionalities of User Login/Logout, Home page to display all
+                products offered to sell, Cart page for products added to cart
+                by user.
+              </p>
+              <a href="https://shopify-lite.vercel.app/"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/work3.png" alt="work3 image" />
+            <div class="layer">
+              <h3>Task management app</h3>
+              <p>
+                A task management app where users can: (1) Add a task (2) Mark a
+                task as complete (3) Delete a task (4) Filter tasks by "all",
+                "completed", or "incomplete" (4) Search tasks with debounce
+                feature.
+              </p>
+              <a href="https://todo-list-app-red-tau.vercel.app/"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <a href="https://github.com/Ankush-nitjsr" class="btn">See more</a>
+      </div>
+    </div>
+    <!-- ---------------- Contact section ---------------------->
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="title">Contact Me</h1>
+            <p><i class="fas fa-paper-plane"></i>ankushnitjsr@gmail.com</p>
+            <p><i class="fas fa-phone-square-alt"></i>+918271064320</p>
+            <div class="social-icons">
+              <a href=""><i class="fab fa-facebook"></i></a>
+              <a href=""><i class="fab fa-twitter-square"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+            <a href="/images/Ankush_Resume.pdf" download class="btn btn2"
+              >Download CV/Resume</a
+            >
+          </div>
+          <div class="contact-right">
+            <form name="submit-to-google-sheet">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input
+                type="text"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="message"
+                id=""
+                rows="6"
+                placeholder="Your Message"
+              ></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------- Copyright section ---------------------->
+    <div class="copyright">
+      <p>Made with <i class="fas fa-heart"></i> by Ankush</p>
     </div>
     <script src="script.js"></script>
   </body>
