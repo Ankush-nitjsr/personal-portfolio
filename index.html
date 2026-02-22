@@ -3,263 +3,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ankush — Software Engineer. Frontend & Backend Web Developer. Explore projects, services and get in touch." />
+    <meta name="theme-color" content="#ffffff" />
     <title>Portfolio - Ankush</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/d649801108.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="icon" href="/favicon.ico" />
+    <script src="https://kit.fontawesome.com/d649801108.js" crossorigin="anonymous"></script>
+    <style>
+      /* small UX improvement: smooth scrolling */
+      html { scroll-behavior: smooth; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    </style>
   </head>
   <body>
-    <!-- ---------------- Header section ---------------------->
-    <div id="header">
+    <a class="skip-link" href="#main" style="position:absolute;left:-999px;top:auto;overflow:hidden;">Skip to main content</a>
+
+    <header id="header" role="banner" class="site-header">
       <div class="container">
-        <nav>
-          <h2 class="logo">
-            <span style="color: #ff004f; font-size: 2rem">A</span>nkush.
-          </h2>
-          <ul id="sidemenu">
-            <li>
-              <a href="#header">Home</a>
+        <nav role="navigation" aria-label="Main navigation" class="nav">
+          <a class="logo" href="#header" aria-label="Ankush homepage">
+            <span class="logo-accent">A</span>nkush.
+          </a>
+          <button class="nav-toggle" aria-controls="sidemenu" aria-expanded="false" onclick="openmenu()" aria-label="Open menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+
+          <ul id="sidemenu" class="nav-list" role="menu" aria-hidden="true">
+            <li role="none"><a role="menuitem" href="#header">Home</a></li>
+            <li role="none"><a role="menuitem" href="#about">About</a></li>
+            <li role="none"><a role="menuitem" href="#services">Services</a></li>
+            <li role="none"><a role="menuitem" href="#portfolio">Portfolio</a></li>
+            <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+            <li role="none">
+              <button class="nav-close" aria-label="Close menu" onclick="closemenu()"><i class="fas fa-times" aria-hidden="true"></i></button>
             </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#services">Services</a>
-            </li>
-            <li>
-              <a href="#portfolio">Portfolio</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-            <i class="fas fa-times" onclick="closemenu()"></i>
           </ul>
-          <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
-        <div class="header-text">
-          <p>Web Developer</p>
-          <h1>Hi, I'm <span>Ankush</span><br />From India</h1>
-        </div>
-      </div>
-    </div>
-    <!-- ---------------- About section ---------------------->
-    <div id="about">
-      <div class="container">
-        <div class="row">
-          <div class="left-section">
-            <img src="images/aboutPic.png" alt="about section picture" />
-          </div>
-          <div class="right-section">
-            <h1 class="title">About Me</h1>
-            <p>
-              I am Ankush, a Software Development Engineer with over 2 years of
-              experience specializing in frontend and backend web development.
-              Proficient in technologies like ReactJS, TypeScript, and Redux, I
-              have built scalable web applications with a strong focus on user
-              experience. My projects, including CryptoTracker and Shop,
-              showcase my ability to design and deliver innovative solutions.
-              <br /><br />
-              In addition to my technical expertise, I bring excellent
-              collaboration and problem-solving skills, having worked in Agile
-              environments with cross-functional teams. I am passionate about
-              staying updated with emerging technologies to create impactful and
-              efficient applications. Outside of work, I enjoy playing
-              volleyball and exploring car modifications, combining creativity
-              with a drive for innovation.
-            </p>
-            <div class="tab-titles">
-              <p class="tab-links active-link" onclick="openTab('skills')">
-                Skills
-              </p>
-              <p class="tab-links" onclick="openTab('experience')">
-                Experience
-              </p>
-              <p class="tab-links" onclick="openTab('education')">Education</p>
-            </div>
-            <div class="tab-contents active-tab" id="skills">
-              <ul>
-                <li><span>UI/UX</span><br />Designing Web/App interfaces</li>
-                <li><span>Web Development</span><br />Web app development</li>
-                <li>
-                  <span>App Development</span><br />Building Andriod/iOS apps
-                </li>
-              </ul>
-            </div>
-            <div class="tab-contents" id="experience">
-              <ul>
-                <li>
-                  <span>Nov'2024 - Present</span><br />SDE1 at Windsor Tech
-                </li>
-                <li>
-                  <span>Apr'2024 - Oct'2024</span><br />Software Developer at
-                  Aventisia Technologies
-                </li>
-                <li>
-                  <span>2022 - 2024</span><br />Software Engineer at Maruti
-                  Suzuki
-                </li>
-                <li>
-                  <span>2016 - 2022</span><br />Deputy Manager at Maruti Suzuki.
-                </li>
-              </ul>
-            </div>
-            <div class="tab-contents" id="education">
-              <ul>
-                <li><span>2016</span><br />B.Tech from NIT Jamshedpur</li>
-                <li><span>2011</span><br />12th from DPS Ranchi</li>
-                <li><span>2009</span><br />10th from JNV Chatra</li>
-              </ul>
-            </div>
+
+        <div class="header-text" aria-labelledby="intro-title">
+          <p class="eyebrow">Web Developer</p>
+          <h1 id="intro-title">Hi, I'm <span>Ankush</span><br />Based in India</h1>
+          <p class="lead">I build accessible, responsive web applications with React, TypeScript and modern tooling.</p>
+          <div class="header-ctas">
+            <a href="#portfolio" class="btn btn-primary">View my work</a>
+            <a href="#contact" class="btn btn-outline">Contact me</a>
           </div>
         </div>
       </div>
-    </div>
-    <!-- ---------------- Services section ---------------------->
-    <div id="services">
-      <div class="container">
-        <h1 class="title">My Services</h1>
-        <div class="services-list">
-          <div>
-            <i class="fa-solid fa-code"></i>
-            <h2>Web Design</h2>
-            <p>
-              I specialize in creating dynamic and responsive web designs using
-              ReactJS, TypeScript, and Tailwind CSS. My focus is on developing
-              user-centric interfaces that ensure seamless navigation across
-              devices.
-            </p>
-            <a href="https://github.com/Ankush-nitjsr">Learn more</a>
-          </div>
-          <div>
-            <i class="fa-solid fa-crop"></i>
-            <h2>UI/UX Design</h2>
-            <p>
-              With a strong foundation in UI/UX principles, I design intuitive
-              user interfaces that align with user needs. I transform Figma
-              designs into pixel-perfect, interactive components using modern
-              frontend tools.
-            </p>
-            <a href="https://github.com/Ankush-nitjsr">Learn more</a>
-          </div>
-          <div>
-            <i class="fa-brands fa-app-store"></i>
-            <h2>App Design</h2>
-            <p>
-              I have experience designing scalable applications like
-              CryptoTracker and Shop, ensuring a balance of aesthetics and
-              functionality. My designs prioritize performance, user engagement,
-              and adaptability.
-            </p>
-            <a href="https://github.com/Ankush-nitjsr">Learn more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ---------------- Portfolio section ---------------------->
-    <div id="portfolio">
-      <div class="container">
-        <h1 class="title">My Work</h1>
-        <div class="work-list">
-          <div class="work">
-            <img src="images/work1.png" alt="work1 image" />
-            <div class="layer">
-              <h3>Crypto tracker app</h3>
+    </header>
+
+    <main id="main" role="main">
+      <section id="about" class="section about-section" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="row">
+            <figure class="left-section about-figure">
+              <img src="images/aboutPic.png" alt="Portrait of Ankush" />
+            </figure>
+            <div class="right-section">
+              <h2 id="about-heading" class="title">About Me</h2>
               <p>
-                A powerful crypto tracker built with React, Axios, Framer
-                Motion, and Chart.js. Keep an eye on your favorite
-                cryptocurrencies with customizable watchlists and dynamic,
-                real-time data visualizations.
+                I am Ankush, a Software Development Engineer with experience in frontend and backend development.
+                I specialize in React, TypeScript, and scalable front-end architectures, and I enjoy building delightful user experiences.
               </p>
-              <a href="https://crypto-tracker-7bgw.vercel.app/"
-                ><i class="fa-solid fa-arrow-up-right-from-square"></i
-              ></a>
-            </div>
-          </div>
-          <div class="work">
-            <img src="images/work2.png" alt="work2 image" />
-            <div class="layer">
-              <h3>Shop e-commerce app</h3>
               <p>
-                A lightweight e-commerce project built ReactJs and Vite having
-                functionalities of User Login/Logout, Home page to display all
-                products offered to sell, Cart page for products added to cart
-                by user.
+                Outside of work I enjoy volleyball and car modifications — I like combining creativity with practical problem solving.
               </p>
-              <a href="https://shopify-lite.vercel.app/"
-                ><i class="fa-solid fa-arrow-up-right-from-square"></i
-              ></a>
-            </div>
-          </div>
-          <div class="work">
-            <img src="images/work3.png" alt="work3 image" />
-            <div class="layer">
-              <h3>Task management app</h3>
-              <p>
-                A task management app where users can: (1) Add a task (2) Mark a
-                task as complete (3) Delete a task (4) Filter tasks by "all",
-                "completed", or "incomplete" (4) Search tasks with debounce
-                feature.
-              </p>
-              <a href="https://todo-list-app-red-tau.vercel.app/"
-                ><i class="fa-solid fa-arrow-up-right-from-square"></i
-              ></a>
+
+              <div class="tab-titles" role="tablist" aria-label="About tabs">
+                <button class="tab-links active-link" role="tab" aria-selected="true" onclick="openTab('skills')">Skills</button>
+                <button class="tab-links" role="tab" onclick="openTab('experience')">Experience</button>
+                <button class="tab-links" role="tab" onclick="openTab('education')">Education</button>
+              </div>
+
+              <div class="tab-contents active-tab" id="skills" role="tabpanel">
+                <ul class="skills-list">
+                  <li><strong>UI/UX</strong><br />Designing interfaces & experiences</li>
+                  <li><strong>Web Development</strong><br />React, TypeScript, Redux</li>
+                  <li><strong>App Development</strong><br />Mobile-first, responsive apps</li>
+                </ul>
+              </div>
+
+              <div class="tab-contents" id="experience" role="tabpanel" hidden>
+                <ul>
+                  <li><strong>Apr 2025 - present</strong> — Senior Software Engineer @ Samta AI</li>
+                  <li><strong>Jul 2022 - Mar 2025</strong> — Product Engineer & Estimator @ Windsor Tech</li>
+                  <li><strong>Jul 2016 - Jun 2022</strong> — Deputy Manager @ Maruti Suzuki</li>
+                </ul>
+              </div>
+
+              <div class="tab-contents" id="education" role="tabpanel" hidden>
+                <ul>
+                  <li><strong>2016</strong> — B.Tech, NIT Jamshedpur</li>
+                  <li><strong>2011</strong> — 12th, DPS Ranchi</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <a href="https://github.com/Ankush-nitjsr" class="btn">See more</a>
-      </div>
-    </div>
-    <!-- ---------------- Contact section ---------------------->
-    <div id="contact">
+      </section>
+
+      <section id="services" class="section services-section" aria-labelledby="services-heading">
+        <div class="container">
+          <h2 id="services-heading" class="title">My Services</h2>
+          <div class="services-list">
+            <article class="service-card">
+              <i class="fa-solid fa-code" aria-hidden="true"></i>
+              <h3>Web Development</h3>
+              <p>Responsive, accessible single-page apps using React, TypeScript and modern toolchains.</p>
+              <a href="https://github.com/Ankush-nitjsr" target="_blank" rel="noopener noreferrer">Learn more</a>
+            </article>
+            <article class="service-card">
+              <i class="fa-solid fa-crop" aria-hidden="true"></i>
+              <h3>UI/UX Design</h3>
+              <p>From Figma to production — pixel-perfect components and design systems.</p>
+              <a href="https://github.com/Ankush-nitjsr" target="_blank" rel="noopener noreferrer">Learn more</a>
+            </article>
+            <article class="service-card">
+              <i class="fa-brands fa-app-store" aria-hidden="true"></i>
+              <h3>App Design</h3>
+              <p>Mobile-first design with performance and UX in mind.</p>
+              <a href="https://github.com/Ankush-nitjsr" target="_blank" rel="noopener noreferrer">Learn more</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section portfolio-section" aria-labelledby="portfolio-heading">
+        <div class="container">
+          <h2 id="portfolio-heading" class="title">My Work</h2>
+          <div class="work-list">
+            <article class="work">
+              <img src="images/work1.png" alt="Crypto tracker screenshot" />
+              <div class="layer">
+                <h3>Crypto tracker app</h3>
+                <p>Real-time charts and custom watchlists built with React, Chart.js and Framer Motion.</p>
+                <a href="https://crypto-tracker-7bgw.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Crypto tracker in new tab"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </article>
+            <article class="work">
+              <img src="images/work2.png" alt="Shop e-commerce screenshot" />
+              <div class="layer">
+                <h3>Shop e-commerce app</h3>
+                <p>Vite + React project with auth, cart and product listings.</p>
+                <a href="https://shopify-lite.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Shop app in new tab"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </article>
+            <article class="work">
+              <img src="images/work3.png" alt="Task management app screenshot" />
+              <div class="layer">
+                <h3>Task management app</h3>
+                <p>A small productivity app with debounced search and filters.</p>
+                <a href="https://todo-list-app-red-tau.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Task management app in new tab"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </article>
+          </div>
+          <a href="https://github.com/Ankush-nitjsr" class="btn" target="_blank" rel="noopener noreferrer">See more</a>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+        <div class="container">
+          <div class="row">
+            <div class="contact-left">
+              <h2 id="contact-heading" class="title">Contact Me</h2>
+              <p><i class="fas fa-paper-plane" aria-hidden="true"></i> <a href="mailto:ankushnitjsr@gmail.com">ankushnitjsr@gmail.com</a></p>
+              <p><i class="fas fa-phone-square-alt" aria-hidden="true"></i> <a href="tel:+918271064320">+91 82710 64320</a></p>
+              <div class="social-icons" aria-hidden="false">
+                <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/ankushchoubey18/profilecard/?igsh=MWE4bGpzcWcydmEyZA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/ankush-4464998a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+              </div>
+              <a href="/images/Ankush_Resume.pdf" download class="btn btn2">Download CV/Resume</a>
+            </div>
+
+            <div class="contact-right">
+              <form name="submit-to-google-sheet" aria-label="Contact form">
+                <label for="name" class="sr-only">Your Name</label>
+                <input id="name" type="text" name="name" placeholder="Your Name" required />
+
+                <label for="email" class="sr-only">Your Email</label>
+                <input id="email" type="email" name="email" placeholder="Your Email" required />
+
+                <label for="message" class="sr-only">Your Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="btn btn2">Submit</button>
+              </form>
+              <span id="msg" aria-live="polite"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
       <div class="container">
-        <div class="row">
-          <div class="contact-left">
-            <h1 class="title">Contact Me</h1>
-            <p><i class="fas fa-paper-plane"></i>ankushnitjsr@gmail.com</p>
-            <p><i class="fas fa-phone-square-alt"></i>+918271064320</p>
-            <div class="social-icons">
-              <a href=""><i class="fab fa-facebook"></i></a>
-              <a href=""><i class="fab fa-twitter-square"></i></a>
-              <a
-                href="https://www.instagram.com/ankushchoubey18/profilecard/?igsh=MWE4bGpzcWcydmEyZA=="
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="https://www.linkedin.com/in/ankush-4464998a"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-            </div>
-            <a href="/images/Ankush_Resume.pdf" download class="btn btn2"
-              >Download CV/Resume</a
-            >
-          </div>
-          <div class="contact-right">
-            <form name="submit-to-google-sheet">
-              <input type="text" name="name" placeholder="Your Name" required />
-              <input
-                type="text"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-              <textarea
-                name="message"
-                id=""
-                rows="6"
-                placeholder="Your Message"
-              ></textarea>
-              <button type="submit" class="btn btn2">Submit</button>
-            </form>
-            <span id="msg"></span>
-          </div>
-        </div>
+        <p>Made with <i class="fas fa-heart" aria-hidden="true"></i> by Ankush</p>
       </div>
-    </div>
-    <!-- ---------------- Copyright section ---------------------->
-    <div class="copyright">
-      <p>Made with <i class="fas fa-heart"></i> by Ankush</p>
-    </div>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
