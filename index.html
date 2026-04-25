@@ -1,44 +1,46 @@
 <!DOCTYPE html>
+<!-- AI-generated via Cursor on 2026-04-25
+     Reviewed and validated by Ankush -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Ankush — Software Engineer. Frontend & Backend Web Developer. Explore projects, services and get in touch." />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#080808" />
+    <meta property="og:title" content="Ankush — Software Developer" />
+    <meta property="og:description" content="Accessible, responsive web applications with React, TypeScript and modern tooling." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
     <title>Portfolio - Ankush</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="/favicon.ico" />
     <script src="https://kit.fontawesome.com/d649801108.js" crossorigin="anonymous"></script>
-    <style>
-      /* small UX improvement: smooth scrolling */
-      html { scroll-behavior: smooth; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-    </style>
   </head>
   <body>
-    <a class="skip-link" href="#main" style="position:absolute;left:-999px;top:auto;overflow:hidden;">Skip to main content</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
     <header id="header" role="banner" class="site-header">
+      <div class="header-hero-bg" aria-hidden="true"></div>
       <div class="container">
         <nav role="navigation" aria-label="Main navigation" class="nav">
           <a class="logo" href="#header" aria-label="Ankush homepage">
             <span class="logo-accent">A</span>nkush.
           </a>
-          <button class="nav-toggle" aria-controls="sidemenu" aria-expanded="false" onclick="openmenu()" aria-label="Open menu">
+          <button class="nav-toggle" type="button" id="navToggle" aria-controls="sidemenu" aria-expanded="false" aria-label="Open menu">
             <i class="fas fa-bars" aria-hidden="true"></i>
           </button>
 
-          <ul id="sidemenu" class="nav-list" role="menu" aria-hidden="true">
+          <ul id="sidemenu" class="nav-list" role="menu">
             <li role="none"><a role="menuitem" href="#header">Home</a></li>
             <li role="none"><a role="menuitem" href="#about">About</a></li>
             <li role="none"><a role="menuitem" href="#services">Services</a></li>
             <li role="none"><a role="menuitem" href="#portfolio">Portfolio</a></li>
             <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
             <li role="none">
-              <button class="nav-close" aria-label="Close menu" onclick="closemenu()"><i class="fas fa-times" aria-hidden="true"></i></button>
+              <button class="nav-close" type="button" id="navClose" aria-label="Close menu"><i class="fas fa-times" aria-hidden="true"></i></button>
             </li>
           </ul>
         </nav>
@@ -60,7 +62,7 @@
         <div class="container">
           <div class="row">
             <figure class="left-section about-figure">
-              <img src="images/aboutPic.png" alt="Portrait of Ankush" />
+              <img src="images/aboutPic.png" alt="Portrait of Ankush" width="500" height="500" loading="lazy" decoding="async" />
             </figure>
             <div class="right-section">
               <h2 id="about-heading" class="title">About Me</h2>
@@ -73,12 +75,12 @@
               </p>
 
               <div class="tab-titles" role="tablist" aria-label="About tabs">
-                <button class="tab-links active-link" role="tab" aria-selected="true" onclick="openTab('skills')">Skills</button>
-                <button class="tab-links" role="tab" onclick="openTab('experience')">Experience</button>
-                <button class="tab-links" role="tab" onclick="openTab('education')">Education</button>
+                <button type="button" class="tab-links active-link" role="tab" id="tab-skills" aria-selected="true" aria-controls="skills" data-tab="skills">Skills</button>
+                <button type="button" class="tab-links" role="tab" id="tab-experience" aria-selected="false" aria-controls="experience" data-tab="experience" tabindex="-1">Experience</button>
+                <button type="button" class="tab-links" role="tab" id="tab-education" aria-selected="false" aria-controls="education" data-tab="education" tabindex="-1">Education</button>
               </div>
 
-              <div class="tab-contents active-tab" id="skills" role="tabpanel">
+              <div class="tab-contents active-tab" id="skills" role="tabpanel" aria-labelledby="tab-skills">
                 <ul class="skills-list">
                   <li><strong>UI/UX</strong><br />Designing interfaces & experiences</li>
                   <li><strong>Web Development</strong><br />React, TypeScript, Redux</li>
@@ -86,7 +88,7 @@
                 </ul>
               </div>
 
-              <div class="tab-contents" id="experience" role="tabpanel" hidden>
+              <div class="tab-contents" id="experience" role="tabpanel" aria-labelledby="tab-experience" hidden>
                 <ul>
                   <li><strong>Apr 2025 - present</strong> — Senior Software Engineer @ Samta AI</li>
                   <li><strong>Jul 2022 - Mar 2025</strong> — Product Engineer & Estimator @ Windsor Tech</li>
@@ -94,7 +96,7 @@
                 </ul>
               </div>
 
-              <div class="tab-contents" id="education" role="tabpanel" hidden>
+              <div class="tab-contents" id="education" role="tabpanel" aria-labelledby="tab-education" hidden>
                 <ul>
                   <li><strong>2016</strong> — B.Tech, NIT Jamshedpur</li>
                   <li><strong>2011</strong> — 12th, DPS Ranchi</li>
@@ -136,7 +138,7 @@
           <h2 id="portfolio-heading" class="title">My Work</h2>
           <div class="work-list">
             <article class="work">
-              <img src="images/work1.png" alt="Crypto tracker screenshot" />
+              <img src="images/work1.png" alt="Crypto tracker screenshot" width="400" height="300" loading="lazy" decoding="async" />
               <div class="layer">
                 <h3>Crypto tracker app</h3>
                 <p>Real-time charts and custom watchlists built with React, Chart.js and Framer Motion.</p>
@@ -144,7 +146,7 @@
               </div>
             </article>
             <article class="work">
-              <img src="images/work2.png" alt="Shop e-commerce screenshot" />
+              <img src="images/work2.png" alt="Shop e-commerce screenshot" width="400" height="300" loading="lazy" decoding="async" />
               <div class="layer">
                 <h3>Shop e-commerce app</h3>
                 <p>Vite + React project with auth, cart and product listings.</p>
@@ -152,7 +154,7 @@
               </div>
             </article>
             <article class="work">
-              <img src="images/work3.png" alt="Task management app screenshot" />
+              <img src="images/work3.png" alt="Task management app screenshot" width="400" height="300" loading="lazy" decoding="async" />
               <div class="layer">
                 <h3>Task management app</h3>
                 <p>A small productivity app with debounced search and filters.</p>
@@ -171,9 +173,8 @@
               <h2 id="contact-heading" class="title">Contact Me</h2>
               <p><i class="fas fa-paper-plane" aria-hidden="true"></i> <a href="mailto:ankushnitjsr@gmail.com">ankushnitjsr@gmail.com</a></p>
               <p><i class="fas fa-phone-square-alt" aria-hidden="true"></i> <a href="tel:+918271064320">+91 82710 64320</a></p>
-              <div class="social-icons" aria-hidden="false">
-                <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
+              <div class="social-icons">
+                <a href="https://github.com/Ankush-nitjsr" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/ankushchoubey18/profilecard/?igsh=MWE4bGpzcWcydmEyZA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 <a href="https://www.linkedin.com/in/ankush-4464998a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
               </div>
@@ -193,7 +194,7 @@
 
                 <button type="submit" class="btn btn2">Submit</button>
               </form>
-              <span id="msg" aria-live="polite"></span>
+              <span id="msg" class="form-msg" role="status" aria-live="polite"></span>
             </div>
           </div>
         </div>
@@ -205,6 +206,11 @@
         <p>Made with <i class="fas fa-heart" aria-hidden="true"></i> by Ankush</p>
       </div>
     </footer>
+
+    <div class="menu-overlay" id="menuOverlay" hidden aria-hidden="true"></div>
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script src="script.js"></script>
   </body>
