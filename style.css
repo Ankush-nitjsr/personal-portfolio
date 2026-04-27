@@ -1,5 +1,5 @@
-/* AI-generated via Cursor on 2026-04-25 */
-/* Reviewed and validated by Ankush */
+/* AI-generated via Cursor on 2026-04-26
+   Reviewed and validated by Ankush */
 
 :root {
   --bg: #080808;
@@ -15,7 +15,7 @@
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --header-pad: clamp(0.75rem, 2vw, 1.5rem);
   --section-y: clamp(3.5rem, 8vw, 5rem);
-  --container-x: 10%;
+  --container-x: 5%;
 }
 
 * {
@@ -40,6 +40,10 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .header-hero-bg {
+    position: absolute;
   }
 }
 
@@ -98,35 +102,41 @@ button:focus-visible,
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg);
-  /* Portrait lives on .header-hero-bg so width aligns with the centered + max-width: 1200px column */
-  overflow: hidden;
+  min-height: 100dvh;
+  /* Backdrop is .header-hero-bg (fixed); header content scrolls over it */
+  background-color: transparent;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Right edge of this box = right edge of .container (max-width: 1200px, centered) */
+/* Full-viewport hero backdrop: fixed while nav, hero copy, and main scroll */
 .header-hero-bg {
-  /* Align right edge with .container (max-width: 1200px) */
-  position: absolute;
+  position: fixed;
+  inset: 0;
   z-index: 0;
-  top: 0;
-  bottom: 0;
-  right: max(0px, calc(50% - 600px));
-  width: min(50vw, 560px);
-  max-width: 100%;
-  background-image: url(images/profilePic.png);
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: contain;
-  opacity: 0.45;
   pointer-events: none;
-  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.2));
+  background-color: var(--bg);
 }
 
-#header::before {
+.header-hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  /* Sits over the image; semi-transparent on the right so a softer portrait reads well */
+  background-image: url(images/profilePic.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  opacity: 0.45;
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header-hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(105deg, var(--bg) 0%, rgba(8, 8, 8, 0.95) 42%, rgba(8, 8, 8, 0.5) 72%, rgba(8, 8, 8, 0.65) 100%);
   pointer-events: none;
   z-index: 1;
@@ -135,16 +145,20 @@ button:focus-visible,
 #header .container,
 #header .header-text {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .site-header .container {
   padding: var(--header-pad) var(--container-x);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .site-header .nav {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -224,17 +238,22 @@ nav ul li a:hover::after,
 }
 
 .logo {
+  display: inline-block;
   text-decoration: none;
   color: #fff;
   font-weight: 600;
   font-size: 1.35rem;
+  line-height: 1.2;
   letter-spacing: 0.02em;
   width: auto;
 }
 
-.logo-accent {
+/* One line box: color only on first letter, same font metrics as the rest of the link. */
+.logo::first-letter {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 nav .nav-close,
@@ -242,9 +261,13 @@ nav .nav-close,
   display: none;
 }
 
-/* Hero */
+/* Hero: fill viewport below nav without a dead band at the bottom */
 .header-text {
-  margin-top: clamp(10%, 18vh, 22%);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
   max-width: min(40rem, 92vw);
   font-size: 1.25rem;
 }
@@ -331,6 +354,13 @@ nav .nav-close,
   color: #fff;
 }
 
+/* Above fixed hero backdrop; stacks over header when scrolling so content scrolls as one surface */
+#main {
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg);
+}
+
 /* Sections */
 main .section,
 .section {
@@ -340,8 +370,7 @@ main .section,
 .container {
   padding: 10px var(--container-x);
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 10rem;
 }
 
 #about,
@@ -824,6 +853,8 @@ form .btn2:disabled {
 
 .copyright,
 .site-footer {
+  position: relative;
+  z-index: 2;
   width: 100%;
   text-align: center;
   padding: 1.5rem 1rem;
@@ -893,19 +924,19 @@ nav .fas {
 
   #header {
     min-height: 100vh;
+    min-height: 100dvh;
   }
 
-  .header-hero-bg {
+  .header-hero-bg::after {
     background-image: url(images/phoneBgProfilePic.png);
-    right: 0;
-    width: 100%;
-    max-width: none;
-    background-position: right center;
+    background-position: center bottom;
     background-size: contain;
     opacity: 0.38;
   }
 
   .header-text {
+    flex: 1;
+    justify-content: flex-start;
     margin-top: clamp(45%, 52vh, 58%);
     font-size: 0.95rem;
   }
